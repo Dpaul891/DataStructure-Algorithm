@@ -9,12 +9,15 @@ void addEdge(int u, int v, vector<vector<int>>& adj){
     adj[v].push_back(u);
 }
 
-void init(int m, vector<vector<int>>& adj){
- 
-    for(int i=0; i<m; i++){
-        int u, v;
-        cin >> u >> v;
-        addEdge(u, v, adj);
+void init(int n, vector<vector<int>>& adj){
+    for(int i=0; i<n; i++){
+        int si, v;
+        cin >> si;
+        for(int j=0; j<si; j++){
+            cin >> v;
+            v += n;
+            addEdge(i, v, adj);
+        }
     }
 }
 bool dfs(int u, vector<bool>& visit,vector<int>& match, vector<vector<int>>& adj){
@@ -44,10 +47,10 @@ void doIt(int n, vector<int>& match, vector<vector<int>>& adj, int& ans){
 int main()
 {
     int n, m, ans = 0;
-    cin >> n >> m; 
-    vector<vector<int>> adj(n);
-    vector<int> match(n, -1);
-    init(m, adj);
+    cin >> n >> m;
+    vector<vector<int>> adj(n+m);
+    vector<int> match(n+m, -1);
+    init(n, adj);
     doIt(n, match, adj, ans);
     cout << ans << endl;
     return 0;
