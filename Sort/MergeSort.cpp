@@ -39,7 +39,7 @@ void Merge_Sort(vector<int>& data, int n){
 }
 int main()
 {
-    vector<int> data{79, 66, 43, 83, 30, 87, 38, 55, 91, 72, 49, 9};
+    vector<int> data{79, 66, 43, 83, 30, 87, 38, 55, 91, 72, 49, 9, 10};
     int n = data.size();
     vector<int> tmpData(n);
     Merge_Sort(data, n);
